@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XB3PR2Y1TQ"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-XB3PR2Y1TQ');
+    </script>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>MeshifyDreams : 3D Mesh Reconstruction from Dreamed Images</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,500,600' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/assets/css/Highlight-Clean.css">
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+      <link href="css/bootstrap-4.4.1.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;700;800;900&amp;display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.css" rel="stylesheet" />
+  <link href="img/favicon.svg" rel="icon" sizes="any" type="image/svg+xml" />
+
+
+    <style>
+        body {
+          margin-top: 50px;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        h2 {
+            text-align: center;
+            font-size: 36px;
+            margin-top: 20px;
+            margin-bottom: 30px;
+        }
+        h2 + p {
+            text-indent: 2em;
+            text-align: justify;
+        }
+        .divider {
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        video{
+            width: 90%;
+            height: auto;
+            object-fit:cover;
+            background-color: transparent !important;
+            width: 100%; height: auto; object-fit: cover; background: #000
+        }
+        .videoContainer {
+            width: 100%;
+            height: auto;
+            background-color: transparent !important;
+        }
+        .centered-buttons {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 8px;
+        }
+        video:focus {
+            outline:none;
+        }
+        .authors .col-sm-3,
+        .authors .col-sm-2 {
+            flex: 1;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="highlight-clean" style="padding-bottom: 10px;">
+        <div class="container" style="max-width: 768px;">
+            <h1 class="text-center"><b> MeshifyDreams </b>: 3D Mesh Reconstruction from Dreamed Images</h1>
+        </div>
+        <div class="container" style="max-width: 1080px;">
+            <div class="row authors">
+                <div class="col-sm-3">
+                    <h5 class="text-center"><a class="text-center">Yizheng Chen</a></h5>
+                    <h6 class="text-center">Zhejiang Lab</h6>
+                </div>
+                <div class="col-sm-3">
+                    <h5 class="text-center">Rengan Xie</a></h5>
+                    <h6 class="text-center">Zhejiang University</h6>
+                </div>
+                <div class="col-sm-2">
+                    <h5 class="text-center">Sen Yang</a></h5>
+                    <h6 class="text-center">Zhejiang Lab</h6>
+                </div>
+                <div class="col-sm-2">
+                    <h5 class="text-center"><a class="text-center">Rong Li</a></h5>
+                    <h6 class="text-center">Zhejiang Lab</h6>
+                </div>
+                <div class="col-sm-3">
+                    <h5 class="text-center"><a class="text-center">Yuchi Huo</a></h5>
+                    <h6 class="text-center">Zhejiang University</h6>
+                </div>
+            </div>    
+        </div>
+        <div class="centered-buttons">
+              <a class="btn btn-large btn-light" href="https://github.com/zju3dv/4K4D" role="button" target="_blank">
+                <i class="fa fa-github"></i>
+                Code
+              </a>
+        </div>
+    </div>
+
+    <hr class="divider" />
+    <div class="container" style="max-width: 768px;">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Abstract</h2>
+                <p style=" font-size:15px">
+                Reconstructing 3D objects from a single image is an intriguing but challenging problem. One promising solution is to utilize multi-view (MV) 3D reconstruction to fuse generated MV images into consistent 3D objects. However, the generated images usually suffer from inconsistent lighting, misaligned geometry, and sparse views, leading to poor reconstruction quality. To cope with these problems, we present a novel 3D reconstruction framework that leverages intrinsic decomposition guidance, transient-mono prior guidance, and view augmentation to cope with the three issues, respectively. Specifically, we first leverage to decouple the shading information from the generated images to reduce the impact of inconsistent lighting; then, we introduce mono prior with view-dependent transient encoding to enhance the reconstructed normal; and finally, we design a view augmentation fusion strategy that minimizes pixel-level loss in generated sparse views and semantic loss in augmented random views, resulting in view-consistent geometry and detailed textures. Our approach, therefore, enables the integration of a pre-trained MV image generator and a neural network-based volumetric signed distance function (SDF) representation for a single image to 3D object reconstruction. To complete the process, a multi-view rendering module uses the learned SDF representation to generate multi-view object images and extract precise mesh and texture information. We evaluate our framework on various datasets and demonstrate its superior performance in both quantitative and qualitative assessments, signifying a significant advancement in 3D object reconstruction.                    <!-- </strong> -->
+                </p>
+            </div>
+            <img src="./assets/mainfigure.png">
+            </div>
+            </div>
+        </div>
+    </div>
+
+<hr class="divider" />
+<div class="container" style="max-width: 1080px;">
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Results on the Google Scanned Object dataset</h2>
+            <div class="videoContainer">
+                <video playsinline autoplay loop preload muted display="block" ">
+                    <source src="./assets/gso_v2.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+    </div>
+</div>
+<hr class="divider" />
+<div class="container" style="max-width: 1080px;">
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Text to 3D</h2>
+            <div class="videoContainer">
+                <video playsinline autoplay loop preload muted display="block">
+                    <source src="./assets/text.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+    </div>
+</div>
+<hr class="divider" />
+<div class="container" style="max-width: 1080px;">
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Results on the 2D design images</h2>
+            <div class="videoContainer">
+                <video playsinline autoplay loop preload muted display="block" >
+                    <source src="./assets/2d.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+    </div>
+</div>
+<hr class="divider" />
+<div class="container" style="max-width: 1080px;">
+    <div class="row">
+        <div class="col-md-12">
+            <h2>More results</h2>
+            <div class="videoContainer">
+                <video playsinline autoplay loop preload muted display="block">
+                    <source src="./assets/else.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--    <hr class="divider" />-->
+<!--    <div class="container" style="max-width: 768px;">-->
+<!--        <div class="row">-->
+<!--            <div class="col-md-12">-->
+<!--                <h2>Citation</h2>-->
+<!--                <code>-->
+
+<!--                }</code>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+    <script src="https://polyfill.io/v3/polyfill.js?features=IntersectionObserver"></script>
+    <script src="/assets/js/yall.js"></script>
+    <script>
+        yall(
+            {
+                observeChanges: true
+            }
+        );
+    </script>
+    <script src="/assets/js/scripts.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://uploads-ssl.webflow.com/51e0d73d83d06baa7a00000f/js/webflow.fd002feec.js"></script>
+    <!-- Import the component -->
+</body>
+
+</html>
